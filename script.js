@@ -4,6 +4,8 @@ let playerScore = 0;
 let computerScore = 0;
 const rps = ['Rock','Paper','Scissors'];
 
+let buttons = document.querySelectorAll('.button');
+
 function computerPlay(){
     return rps[Math.floor(Math.random()*rps.length)];
 }
@@ -11,7 +13,6 @@ function computerPlay(){
 
 
 function playRound(playerSelection,computerSelection){
-    playerSelection=prompt('make a choice!');
     computerSelection=computerPlay().toLowerCase();
     playerSelection=playerSelection.toLowerCase();
 
@@ -40,15 +41,16 @@ function playRound(playerSelection,computerSelection){
 
 }
 
-do{
-    playRound(playerSelection,computerSelection);
-    console.log(playerScore);
-    console.log(computerScore);
-    if(playerScore===5||computerScore===5){
-        gameWinner();
-        break;
-    }
-}while((computerScore!=5)||(playerScore!=5));
+buttons.forEach((button)=>{
+    button.addEventListener('click', ()=>{
+        const img = button.querySelector('img');
+        playerSelection=img.alt.toLowerCase();
+
+        playRound(playerSelection, computerSelection);
+        console.log(playerScore);
+        console.log(computerScore);
+    })
+});
 
 function gameWinner(){
 
