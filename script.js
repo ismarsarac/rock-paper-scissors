@@ -17,7 +17,7 @@ function playRound(playerSelection,computerSelection){
     playerSelection=playerSelection.toLowerCase();
 
     if (computerSelection == playerSelection){
-        console.log('tie game');
+        displayResults('tie game');
     }
     else if (
         (computerSelection == 'rock' && playerSelection == 'scissors') ||
@@ -25,7 +25,7 @@ function playRound(playerSelection,computerSelection){
         (computerSelection == 'scissors' && playerSelection == 'paper')
     ){
         computerScore++;
-        console.log(`you lose!\n${computerSelection} beats ${playerSelection}.`);
+        displayResults(`you lose!\n${computerSelection} beats ${playerSelection}.`);
     }
     else if (
         (playerSelection == 'rock' && computerSelection == 'scissors') ||
@@ -33,10 +33,10 @@ function playRound(playerSelection,computerSelection){
         (playerSelection == 'scissors' && computerSelection == 'paper')
     ){
         playerScore++;
-        console.log(`you win!\n${playerSelection} beats ${computerSelection}.`);
+        displayResults(`you win!\n${playerSelection} beats ${computerSelection}.`);
     }
     else{
-        console.log('something went wrong'); 
+        displayResults('something went wrong'); 
     }
 
 }
@@ -51,6 +51,10 @@ buttons.forEach((button)=>{
         console.log(computerScore);
     })
 });
+
+function displayResults(str){
+
+}
 
 function gameWinner(){
 
