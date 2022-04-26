@@ -5,6 +5,7 @@ let computerScore = 0;
 const rps = ['Rock','Paper','Scissors'];
 
 let buttons = document.querySelectorAll('.button');
+let results = document.querySelector('#result-container');
 
 function computerPlay(){
     return rps[Math.floor(Math.random()*rps.length)];
@@ -53,7 +54,8 @@ buttons.forEach((button)=>{
 });
 
 function displayResults(str){
-
+    results = str;
+    console.log(results);
 }
 
 function gameWinner(){
