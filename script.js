@@ -5,7 +5,7 @@ let computerScore = 0;
 const rps = ['Rock','Paper','Scissors'];
 
 let buttons = document.querySelectorAll('.button');
-let results = document.querySelector('#result-container');
+let results = document.querySelector('#results-container');
 
 function computerPlay(){
     return rps[Math.floor(Math.random()*rps.length)];
@@ -26,6 +26,7 @@ function playRound(playerSelection,computerSelection){
         (computerSelection == 'scissors' && playerSelection == 'paper')
     ){
         computerScore++;
+        computerScoreCounter();
         displayResults(`you lose!\n${computerSelection} beats ${playerSelection}.`);
     }
     else if (
@@ -34,6 +35,7 @@ function playRound(playerSelection,computerSelection){
         (playerSelection == 'scissors' && computerSelection == 'paper')
     ){
         playerScore++;
+        playerScoreCounter();
         displayResults(`you win!\n${playerSelection} beats ${computerSelection}.`);
     }
     else{
@@ -48,14 +50,24 @@ buttons.forEach((button)=>{
         playerSelection=img.alt.toLowerCase();
 
         playRound(playerSelection, computerSelection);
-        console.log(playerScore);
-        console.log(computerScore);
+        if(playerScore ===5||computerScore===5){
+            gameWinner();
+        }
     })
 });
 
+function playerScoreCounter(){
+    let playerScoreDisplay = document.querySelector("#player-score");
+    playerScoreDisplay.textContent = playerScore;
+}
+
+function computerScoreCounter(){
+    let computerScoreDisplay = document.querySelector("#computer-score");
+    computerScoreDisplay.textContent = computerScore;
+}
+
 function displayResults(str){
-    results = str;
-    console.log(results);
+    results.textContent = str;
 }
 
 function gameWinner(){
