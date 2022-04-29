@@ -6,6 +6,8 @@ const rps = ['Rock','Paper','Scissors'];
 
 let buttons = document.querySelectorAll('.button');
 let results = document.querySelector('#results-container');
+let theWinner = document.querySelector('#winner-display');
+
 
 function computerPlay(){
     return rps[Math.floor(Math.random()*rps.length)];
@@ -18,7 +20,7 @@ function playRound(playerSelection,computerSelection){
     playerSelection=playerSelection.toLowerCase();
 
     if (computerSelection == playerSelection){
-        displayResults('tie game');
+        displayResults('tie!');
     }
     else if (
         (computerSelection == 'rock' && playerSelection == 'scissors') ||
@@ -58,12 +60,12 @@ buttons.forEach((button)=>{
 
 function playerScoreCounter(){
     let playerScoreDisplay = document.querySelector("#player-score");
-    playerScoreDisplay.textContent = playerScore;
+    playerScoreDisplay.textContent = `You: ${playerScore}`;
 }
 
 function computerScoreCounter(){
     let computerScoreDisplay = document.querySelector("#computer-score");
-    computerScoreDisplay.textContent = computerScore;
+    computerScoreDisplay.textContent = `Cpu: ${computerScore}`;
 }
 
 function displayResults(str){
@@ -73,9 +75,9 @@ function displayResults(str){
 function gameWinner(){
 
     if(playerScore>computerScore){
-        alert('You win!');
+        theWinner.textContent=('You are the winner!');
     }
     else{
-        alert('You lost!');
+        theWinner.textContent=('You are the loser!');
     }
 }

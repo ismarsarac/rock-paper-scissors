@@ -4,26 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
     <title>RockPaperScissors</title>
 </head>
+<header>ROCK PAPER SCISSORS!!!</header>
 <body>
     <div id="rps-container">
         <div id="rock" class ='button'>
-            rock<img src="img/rock.jpeg" alt="rock">
+            <img src="img/rock.jpeg" alt="rock">
         </div>
         <div id="paper" class ='button'>
-            paper<img src="img/paper.jpeg" alt="paper">
+            <img src="img/paper.jpeg" alt="paper">
         </div>
         <div id="scissors" class ='button'>
-            scissors<img src="img/scissors.png" alt="scissors">
+            <img src="img/scissors.png" alt="scissors">
         </div>
     </div>
+    <div id="requirement-msg">first to 5 wins!</div>
     <div id ="scores">
-        <div id="player-score" class="score">0</div>
-        <div id="computer-score" class="score">0</div>
+        <div id="player-score" class="score">You: 0</div>
+        <div id="computer-score" class="score">Cpu: 0</div>
     </div>
     <div id="results-container"></div>
     <div id="winner-display"></div>
-    <script src="script.js"></script>
+    <div id="replay-button"></div>
 </body>
+
+<footer class="footer">
+    <p>Copyright © ismarsarac</p>
+    <a href="https://github.com/ismarsarac" target="_blank">github</a>
+</footer>
 </html>

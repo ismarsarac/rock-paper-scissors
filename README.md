@@ -1,4 +1,7 @@
 # rock-paper-scissors
 
-Simple rock paper scissors game
-- Working on ui for the game
+Odin Project- rps project
+
+my attempt at rps
+
+-- never got the replay button working but I don't think it was a requirement soooo
